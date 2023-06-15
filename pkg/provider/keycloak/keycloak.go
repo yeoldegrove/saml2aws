@@ -401,6 +401,8 @@ func updateKeyCloakFormData(authForm url.Values, s *goquery.Selection, user *cre
 		}
 		authForm.Add(name, val)
 	}
+	// remove other login ways (currently not handled by this code)
+	authForm.Del("tryAnotherWay")
 }
 
 func updateOTPFormData(authCtx *authContext, otpForm url.Values, s *goquery.Selection) {
